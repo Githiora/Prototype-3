@@ -1,0 +1,21 @@
+.plastic
+Prototype 3.sln
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+UserSettings/
+
+
+# Include .meta files
+!*.meta
+
+# Ignore IDE specific files
+*.csproj
+.DS_Store
+
+ignore.conf
+
+.vscode
