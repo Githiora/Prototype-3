@@ -374,6 +374,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3303195482613169217, guid: cb7cd9b0c56a24d49a40784bd3203ae6, type: 3}
   m_PrefabInstance: {fileID: 602468087}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &642994416 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 9125212449759046732, guid: cb7cd9b0c56a24d49a40784bd3203ae6, type: 3}
+  m_PrefabInstance: {fileID: 602468087}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &835818919
 GameObject:
   m_ObjectHideFlags: 0
@@ -790,6 +795,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b9f9b833bc134d81b184434be9c4fd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionSmokeParticle: {fileID: 642994416}
   gameOver: 0
 --- !u!4 &2083439813 stripped
 Transform:
