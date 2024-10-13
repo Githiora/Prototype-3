@@ -31,11 +31,7 @@ public class PlayerController : MonoBehaviour
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isPlayerOnTheGround = false;
             playerAnim.SetTrigger("Jump_trig");
-            dirtSplatterParicle.Pause();
-        }
-        else if (isPlayerOnTheGround && !gameOver)
-        {
-            dirtSplatterParicle.Play();
+            dirtSplatterParicle.Stop();
         }
     } 
 
@@ -44,6 +40,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isPlayerOnTheGround = true;
+            dirtSplatterParicle.Play();
         }
         else if (collision.gameObject.CompareTag("Obstacle"))
         {
