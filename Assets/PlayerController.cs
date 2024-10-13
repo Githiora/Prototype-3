@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody playerRb;
     private Animator playerAnim;
+    private ParticleSystem explosionSmokeParticle;
     private float jumpForce = 900;
     private float gravityModifier = 2;
     public bool gameOver = false;
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour
         playerRb = GetComponent<Rigidbody>();
         Physics.gravity *= gravityModifier;
         playerAnim = GetComponent<Animator>();
+        explosionSmokeParticle = GetComponentInChildren<ParticleSystem>();
 
     }
 
@@ -41,6 +43,7 @@ public class PlayerController : MonoBehaviour
         else if (collision.gameObject.CompareTag("Obstacle"))
         {
             Debug.Log("Game Over!");
+            explosionSmokeParticle.Play();
             playerAnim.SetBool("Death_b", true);
             playerAnim.SetInteger("DeathType_int", 1);
             gameOver = true;
