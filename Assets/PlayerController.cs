@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody playerRb;
     private Animator playerAnim;
     public ParticleSystem explosionSmokeParticle;
+    public ParticleSystem dirtSplatterParicle;
     private float jumpForce = 900;
     private float gravityModifier = 2;
     public bool gameOver = false;
@@ -30,6 +31,11 @@ public class PlayerController : MonoBehaviour
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isPlayerOnTheGround = false;
             playerAnim.SetTrigger("Jump_trig");
+            dirtSplatterParicle.Pause();
+        }
+        else if (isPlayerOnTheGround && !gameOver)
+        {
+            dirtSplatterParicle.Play();
         }
     } 
 
@@ -43,6 +49,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Game Over!");
             explosionSmokeParticle.Play();
+            dirtSplatterParicle.Stop();
             playerAnim.SetBool("Death_b", true);
             playerAnim.SetInteger("DeathType_int", 1);
             gameOver = true;
