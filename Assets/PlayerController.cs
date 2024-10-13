@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
 
     private Rigidbody playerRb;
+    private Animator playerAnim;
     private float jumpForce = 15;
     private float gravityModifier = 2;
     public bool gameOver = false;
@@ -16,6 +17,7 @@ public class PlayerController : MonoBehaviour
     {
         playerRb = GetComponent<Rigidbody>();
         Physics.gravity *= gravityModifier;
+        playerAnim = GetComponent<Animator>();
 
     }
 
@@ -26,6 +28,7 @@ public class PlayerController : MonoBehaviour
         {
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isPlayerOnTheGround = false;
+            playerAnim.SetTrigger("Jump_trig");
         }
     } 
 
